@@ -119,6 +119,28 @@ button:focus {
     font-weight: bold;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Bank Sans EF CY Condensed';
+    src: url('fonts/BankSansEFCY-BolCon.eot');
+    src: url('fonts/BankSansEFCY-BolCon.eot?#iefix') format('embedded-opentype'),
+        url('fonts/BankSansEFCY-BolCon.woff2') format('woff2'),
+        url('fonts/BankSansEFCY-BolCon.woff') format('woff'),
+        url('fonts/BankSansEFCY-BolCon.ttf') format('truetype'),
+        url('fonts/BankSansEFCY-BolCon.svg#BankSansEFCY-BolCon') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Muller';
+    src: url('fonts/MullerBold.eot');
+    src: url('fonts/MullerBold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/MullerBold.woff2') format('woff2'),
+        url('fonts/MullerBold.woff') format('woff'),
+        url('fonts/MullerBold.ttf') format('truetype'),
+        url('fonts/MullerBold.svg#MullerBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
 body {
   	background-color: #ffffff;
 	font-family: 'Formular';
@@ -444,7 +466,7 @@ h2 {
 	height: 12px;
 	width: 16px;
 }
-.wrapper--top {
+.wrapper--home-top {
 	min-height: 770px;
 }
 .wrapper--goods {
