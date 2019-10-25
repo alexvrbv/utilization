@@ -8,25 +8,15 @@ $(document).ready(function(){
 
 //Sliders
 function slidersInit() {
-    $('.chronicle-content__slider-wrapper--1 .chronicle-content__slider-inner').slick({
-        dots: false,
-        slidesToShow: 7,
-        centerMode: true,
-        variableWidth: false,
+    $('.clients-slider__inner').slick({
+        dots: true,
+        dotsClass: 'clients-slider__nav',
+        slidesToShow: 6,
+        slidesToScroll: 2,
         infinite: true,
         arrows: true,
-		prevArrow: $('.chronicle-content__slider-wrapper--1 .chronicle-content__slick-prev'),
-        nextArrow: $('.chronicle-content__slider-wrapper--1 .chronicle-content__slick-next'),
-    });
-    $('.chronicle-content__slider-wrapper--2 .chronicle-content__slider-inner').slick({
-        dots: false,
-        slidesToShow: 5,
-        centerMode: true,
-        variableWidth: false,
-        infinite: true,
-        arrows: true,
-		prevArrow: $('.chronicle-content__slider-wrapper--2 .chronicle-content__slick-prev'),
-        nextArrow: $('.chronicle-content__slider-wrapper--2 .chronicle-content__slick-next'),
+		prevArrow: $('.clients-slider__slick-prev'),
+        nextArrow: $('.clients-slider__slick-next'),
     });
 }
 
@@ -34,6 +24,7 @@ function slidersInit() {
 function matchHeightInit() {
     $('.technical-equipment-item__part').matchHeight();
     $('.event__title-inner').matchHeight();
+    $('.clients-slider-slide').matchHeight();
 }
 
 //Map height
