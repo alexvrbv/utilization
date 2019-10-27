@@ -8,6 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="css/jquery.qtip.min.css" rel="stylesheet" type="text/css">
 		<link href="css/slick.css" rel="stylesheet" type="text/css">
 		<link href="styles.css" rel="stylesheet" type="text/css">
 	</head>
@@ -22,10 +23,89 @@
                     <div class="mobile-menu-close" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></div>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link nav-link--have-children" href="#">Услуги</a>
+                            <a class="nav-link have-children-level-1" href="#">Услуги</a>
+                            <div class="nav-submenu-level-1 nav-submenu-level-1--type-1">
+                                <ul>
+                                    <li>
+                                        <a href="#">Техническая экспертиза имущества под списание</a> 
+                                    </li>
+                                    <li>
+                                        <a class="have-children-level-2" href="#">Обработка и утилизация списанного имущества</a>
+                                        <div class="nav-submenu-level-2">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Обработка и утилизация Компьютерной, офисной и бытовой техники</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Обработка и утилизация Банковского оборудования</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Обработка и утилизация кассового и прочего торгового оборудования</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Обработка и утилизация КИПиА и их частей</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Утилизация мебели, предметов интерьера и прочего списанного имущества</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Обработка и утилизация Медицинской техники</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Утилизация атомобилей</a>
+                                                </li>
+                                            </ul>
+                                        </div>                                       
+                                    </li>
+                                    <li>
+                                        <a class="have-children-level-2" href="#">Экологическая нормативная документация, разработка и согласование</a>
+                                        <div class="nav-submenu-level-2">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Разработка и отправка паспортов опасных отхода в Департамент Росприроднадзора по Северо-Западу</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Отчётность по форме 2-ТП (отходы)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Годовой отчет МСП</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Комплексное экологическое сопровождение (НВОС, Продление лимитов, Журнал отходов, Регион</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Расчет и согласования платы за негативное воздействие на окружающую среду (НВОС)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Продление лимитов на размещение отходов</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Ведение журнала учёта движения отходов</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Подача сведений в региональный Кадастр отходов</a>
+                                                </li>
+                                            </ul>
+                                        </div>                                    
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link--have-children" href="#">О компании</a>
+                            <a class="nav-link have-children-level-1" href="#">О компании</a>
+                            <div class="nav-submenu-level-1 nav-submenu-level-1--type-2">
+                                <ul>
+                                    <li>
+                                        <a href="#">Руководство</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">История</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Карточка предпириятия</a>
+                                    </li>
+                                </ul>
+                            </div>                            
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Партнеры и клиенты</a>
@@ -39,17 +119,25 @@
                     </ul>
                 </div>
                 <div class="header__contacts">
-                    <div class="header__contact header__contact--phone">
-                        <a href="tel:+78005052321">
-                            <img src="img/phone.svg">
-                            <span>8 (805) 505 23 21</span>
-                        </a>
-                    </div>
-                    <div class="header__contact">
-                        <a href="mailto:util@utilspb.ru">
-                            <img src="img/email.svg">
-                            <span>util@utilspb.ru</span>
-                        </a>
+                    <div class="header__contacts-inner">
+                        <div class="header__contact header__contact--phone">
+                            <a href="tel:+78005052321">
+                                <img src="img/phone.svg">
+                                <span>8 (805) 505 23 21</span>
+                            </a>
+                        </div>
+                        <div class="header__contact header__contact--phone header__contact--hidden">
+                            <a href="tel:+78005052321">
+                                <img src="img/phone.svg">
+                                <span>8 (805) 505 23 21</span>
+                            </a>
+                        </div>
+                        <div class="header__contact">
+                            <a href="mailto:util@utilspb.ru">
+                                <img src="img/email.svg">
+                                <span>util@utilspb.ru</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <a href="#" class="btn header__btn">Оставить заявку</a>
@@ -190,7 +278,7 @@
                 </div>
             </div>
         </div>
-        <div class="wrapper wrapper--home-content home-content">
+        <div class="wrapper wrapper--home-content home-content home-content--short">
 			<div class="container-fluid width-1430">
 				<div class="row">                             
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -433,6 +521,7 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.qtip.min.js"></script>
         <script src="js/slick.min.js"></script>
         <script src="js/jquery.matchHeight-min.js"></script>
         <script src="js/script.js"></script>
