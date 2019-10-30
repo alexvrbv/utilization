@@ -204,6 +204,28 @@ function slidersInit() {
 			}
 		],
     });
+
+    $('.stages-slider__inner').slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: false,
+        arrows: true,
+		prevArrow: $('.stages-slider__slick-prev'),
+        nextArrow: $('.stages-slider__slick-next'),
+    });
+
+	$('.page-content-slider__inner').each(function(){
+		$(this).slick({
+			dots: false,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			infinite: true,
+			arrows: true,
+			prevArrow: $('.page-content-slider__slick-prev'),
+			nextArrow: $('.page-content-slider__slick-next'),
+		});
+	});
+
 }
 
 //Match height
