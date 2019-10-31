@@ -1756,6 +1756,9 @@ table td {
 	height: 31px;
 	background-color: #00A0E3;
 }
+.top-content__title--green:before {
+	background-color: #1CAF5E;
+}
 .top-content__text {
 	margin-top: 20px;
 	padding-left: 15px;
