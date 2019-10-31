@@ -155,10 +155,15 @@ p {
 	font-weight: 300;
 }
 p.special {
-	margin-bottom: 20px;
 	font-size: 17px;
 	line-height: 2em;
 	color:#3E3E3E;
+}
+p.dark {
+	font-size: 15px;
+	line-height: 2em;
+	color:#49484A;
+	font-weight: 500;
 }
 a {
 	color: #2E2A32;
