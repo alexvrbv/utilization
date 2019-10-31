@@ -152,6 +152,7 @@ p {
 	margin-bottom: 20px;
 	font-size: 15px;
 	line-height: 2em;
+	font-weight: 300;
 }
 p.special {
 	margin-bottom: 20px;
@@ -1751,17 +1752,22 @@ table td {
 .page-content__block--no-margin {
 	margin: 0;
 }
+.page-content__quote-wrapper {
+	text-align: center;
+}
 .page-content__quote {
 	margin-top: 40px;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 670px;
+	display: inline-block;
+	vertical-align: top;
 	padding-left: 30px;
 	color: #2E2A32;
 	font-size: 14px;
 	line-height: 1.8em;
 	font-weight: bold;
 	text-transform: uppercase;
+	text-align: left;
 	position: relative;
 }
 @media (max-width: 767px) {
@@ -1777,6 +1783,52 @@ table td {
 	top: 8px;
 	bottom: 6px;
 	background-color: #00A0E3;
+}
+.page-content__list {
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 870px;
+}
+.page-content__list ul {
+	margin-bottom: 0;
+	counter-reset: section;
+}
+.page-content__list ul li {
+	margin-bottom: 40px;
+	padding-left: 70px;
+	list-style-type: none;
+	position: relative;
+	font-weight: 300;
+}
+@media (max-width: 767px) {
+	.page-content__list ul li {
+		padding-left: 50px;
+	}
+}
+.page-content__list ul li:last-child {
+	margin-bottom: 0;
+}
+.page-content__list ul li:before {
+	counter-increment: section;
+	content: counters(section, ".") ".";
+	position: absolute;
+	left: 0;
+	top: -8px;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background-color: #00A0E3;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	color: #ffffff;
+	font-size: 16px;
+	line-height: 1em;
+	font-weight: bold;
 }
 .page-content-slider {
 	position: relative;
