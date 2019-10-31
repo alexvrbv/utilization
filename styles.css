@@ -1439,6 +1439,9 @@ table td {
 	right: 64px;
 	background-image: url(img/arrow-left--blue.svg);
 }
+.clients--inner-page .clients-slider__slick-prev--green {
+	background-image: url(img/arrow-left--green.svg);
+}
 .clients-slider__slick-prev:hover,
 .clients-slider__slick-prev:focus,
 .stages-slider__slick-prev:hover,
@@ -1457,6 +1460,9 @@ table td {
 }
 .clients--inner-page .clients-slider__slick-next {
 	background-image: url(img/arrow-right--blue.svg);
+}
+.clients--inner-page .clients-slider__slick-next--green {
+	background-image: url(img/arrow-right--green.svg);
 }
 .clients-slider__slick-next:hover,
 .clients-slider__slick-next:focus,
