@@ -278,6 +278,7 @@ h3 {
 }
 table {
 	margin-top: 40px;
+	margin-bottom: 30px;
 	width: 100%;
 }
 @media (max-width: 1199px) {
@@ -1359,6 +1360,10 @@ table td {
 		padding-bottom: 80px;
 	}	
 }
+.wrapper--clients.clients--inner-page {
+	padding-top: 0;
+	overflow: visible;
+}
 .clients__title {
 	font-size: 36px;
 	line-height: 1.2em;
@@ -1386,6 +1391,10 @@ table td {
 	.clients-slider {
 		margin-top: 40px;
 	}	
+}
+.clients--inner-page .clients-slider {
+	margin-top: 0;
+	padding-top: 95px;
 }
 .clients-slider__slick-prev,
 .clients-slider__slick-next,
@@ -1415,11 +1424,20 @@ table td {
 		box-shadow: none;
 	}	
 }
+.clients--inner-page .clients-slider__slick-prev,
+.clients--inner-page .clients-slider__slick-next {
+	top: 0;
+}
 .clients-slider__slick-prev,
 .stages-slider__slick-prev {
 	left: 0;
 	background-position: 45% 50%;
 	background-image: url(img/arrow-left--grey.svg);
+}
+.clients--inner-page .clients-slider__slick-prev {
+	left: auto;
+	right: 64px;
+	background-image: url(img/arrow-left--blue.svg);
 }
 .clients-slider__slick-prev:hover,
 .clients-slider__slick-prev:focus,
@@ -1427,17 +1445,28 @@ table td {
 .stages-slider__slick-prev:focus {
 	background-image: url(img/arrow-left--blue.svg);
 }
+.clients--inner-page .clients-slider__slick-prev:hover,
+.clients--inner-page .clients-slider__slick-prev:focus {
+	background-image: url(img/arrow-left--grey.svg);
+}
 .clients-slider__slick-next,
 .stages-slider__slick-next {
 	right: 0;
 	background-position: 55% 50%;
 	background-image: url(img/arrow-right--grey.svg);
 }
+.clients--inner-page .clients-slider__slick-next {
+	background-image: url(img/arrow-right--blue.svg);
+}
 .clients-slider__slick-next:hover,
 .clients-slider__slick-next:focus,
 .stages-slider__slick-next:hover,
 .stages-slider__slick-next:focus {
 	background-image: url(img/arrow-right--blue.svg);
+}
+.clients--inner-page .clients-slider__slick-next:hover,
+.clients--inner-page .clients-slider__slick-next:focus {
+	background-image: url(img/arrow-right--grey.svg);
 }
 .clients-slider__inner,
 .stages-slider__inner {
@@ -1450,6 +1479,10 @@ table td {
 		margin-left: 25px;
 		margin-right: 25px;
 	}	
+}
+.clients--inner-page .clients-slider__inner {
+	margin-left: 0;
+	margin-right: 0;
 }
 .clients-slider-slide {	
 	height: 100%;
@@ -1469,6 +1502,12 @@ table td {
 	justify-content: center;
 	align-items: center;
 	align-content: center;
+}
+.clients--inner-page .clients-slider-slide__inner {
+	margin-left: 3px;
+	margin-right: 3px;
+	border: 1px solid #EBEBEB;
+	border-radius: 2px;
 }
 .clients-slider-slide img {	
 	display: inline-block;
@@ -1499,8 +1538,17 @@ table td {
 	align-items: center;
 	align-content: center;
 }
+.clients--inner-page .clients-slider__nav li {
+	width: 23px;
+	height: 23px;
+	border: none;
+}
 .clients-slider__nav li.slick-active {
 	border: 2px solid #00A0E4;
+}
+.clients--inner-page .clients-slider__nav li.slick-active {
+	border: none;
+	background-color: #00A0E3;
 }
 .clients-slider__nav li button {
 	width: 8px;
@@ -1511,8 +1559,13 @@ table td {
 	font-size: 0;
 	cursor: pointer;
 }
+.clients--inner-page .clients-slider__nav li button {
+	width: 11px;
+	height: 11px;
+	background-color: #D8D8D8;
+}
 .clients-slider__nav li.slick-active button {
-	background-color: #00A0E4;
+	background-color: #ffffff;
 }
 .stages__title {
 	text-align: center;
@@ -1751,6 +1804,57 @@ table td {
 }
 .page-content__block--no-margin {
 	margin: 0;
+}
+.page-content__block--collapsed {
+	margin-top: 70px;
+	padding-right: 100px;
+	position: relative;
+	max-height: 200px;
+	overflow: hidden;
+	z-index: 1;
+	transition: all 0.3s;
+}
+@media (max-width: 480px) {
+	.page-content__block--collapsed {
+		padding-right: 40px;
+	}
+}
+.page-content__block--collapsed.full {
+	max-height: 9999px;
+}
+.page-content__block--collapsed:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+.page-content__block-readmore {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-image: url(img/plus--blue.svg);
+    cursor: pointer;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.13);
+    transition: all 0.3s;	
+}
+@media (max-width: 480px) {
+	.page-content__block-readmore {
+		width: 30px;
+		height: 30px;
+		background-size: 40%;
+	}
+}
+.full .page-content__block-readmore {
+	transform: rotate(45deg);
 }
 .page-content__quote-wrapper {
 	text-align: center;

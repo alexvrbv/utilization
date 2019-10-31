@@ -3,7 +3,7 @@
 $(document).ready(function(){
     mainMenuDropdownInit();
     mainMenuAccordeonInit();
-    homeContentReadmoreInit();
+    contentReadmoreInit();
     slidersInit();
 	matchHeightInit();
 	mapHeightInit();
@@ -148,8 +148,8 @@ function mainMenuAccordeonInit() {
 	});
 }
 
-//Home content readmore
-function homeContentReadmoreInit() {
+//Content readmore
+function contentReadmoreInit() {
     $('.home-content').on('click', '.home-content__readmore', function(){
         if($(this).closest('.home-content--short').length) {
             $(this).closest('.home-content--short').removeClass('home-content--short').addClass('home-content--full');
@@ -158,6 +158,9 @@ function homeContentReadmoreInit() {
             $(this).closest('.home-content--full').removeClass('home-content--full').addClass('home-content--short');
             $(this).find('span').text('Показать еще');
         }
+    });
+    $('.page-content__block--collapsed').on('click', '.page-content__block-readmore', function(){
+        $(this).parent().toggleClass('full');
     });
 }
 
@@ -238,7 +241,9 @@ function slidersInit() {
 
 //Match height
 function matchHeightInit() {
-    $('.clients-slider-slide').matchHeight();
+	setTimeout(function () {
+    	$('.clients-slider-slide').matchHeight();
+	},300);
 }
 
 //Map height
