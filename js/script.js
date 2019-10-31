@@ -212,6 +212,14 @@ function slidersInit() {
         arrows: true,
 		prevArrow: $('.stages-slider__slick-prev'),
         nextArrow: $('.stages-slider__slick-next'),
+		responsive: [
+			{
+				breakpoint: 1280,
+				settings: {
+					slidesToShow: 1,
+				}
+			},
+		],
     });
 
 	$('.page-content-slider__inner').each(function(){
