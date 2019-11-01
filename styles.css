@@ -2092,6 +2092,107 @@ table td {
 	background-position: 50% 50%;
 	background-size: cover;
 }
+.wrapper--licenses {
+	padding-bottom: 120px;
+}
+.licenses__list {
+	margin-left: -15px;
+	margin-right: -15px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: stretch;
+}
+.license {
+	margin-top: 50px;
+	flex: 0 0 20%;
+	max-width: 20%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+@media (max-width: 1199px) {
+	.license {
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+}
+@media (max-width: 991px) {
+	.license {
+		flex: 0 0 33.33333%;
+		max-width: 33.33333%;
+	}
+}
+@media (max-width: 640px) {
+	.license {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+}
+@media (max-width: 480px) {
+	.license {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+.license__img {
+	padding: 15px;
+	background-color: #C2D3DA;
+	position: relative;
+}
+.license__img-mask {
+	position: absolute;
+	left: -7px;
+	right: -7px;
+	top: -7px;
+	bottom: -7px;
+	border: 22px solid #00A0E3;
+	z-index: 1;
+	padding-bottom: 40px;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: none;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-end;
+	align-content: stretch;
+}
+.license__inner:hover .license__img-mask,
+.license__inner:focus .license__img-mask {
+	display: flex;
+}
+.license__img-mask a {
+	margin-left: 7px;
+	margin-right: 7px;
+	width: 46px;
+	height: 46px;
+	border-radius: 50%;
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	transition: all 0.3s;
+}
+.license__img-open {
+	background-image: url(img/open.svg);
+}
+.license__img-download {
+	background-image: url(img/download.svg);
+}
+.license__img-mask a:hover,
+.license__img-mask a:focus {
+	background-color: #E3EDF9;
+}
+.license__img img {
+	width: 100%;
+	height: auto;
+}
+.license__text {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 15px;
+	line-height: 1.2em;
+}
 .contacts-content {
 	padding-top: 65px;
 	padding-bottom: 65px;

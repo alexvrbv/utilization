@@ -5,6 +5,7 @@ $(document).ready(function(){
     mainMenuAccordeonInit();
     contentReadmoreInit();
     slidersInit();
+	popupsInit();
 	matchHeightInit();
 	mapHeightInit();
 });
@@ -237,6 +238,19 @@ function slidersInit() {
 		});
 	});
 
+}
+
+//Popups
+function popupsInit() {
+    $('.licenses__list').each(function() { // the containers for all your galleries
+        $(this).magnificPopup({
+            delegate: '.license__img-open', // the selector for gallery item
+            type: 'image',
+            gallery: {
+                enabled:true
+            }
+        });
+    });
 }
 
 //Match height
