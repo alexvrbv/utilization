@@ -260,6 +260,9 @@ h3 {
 		margin: 0 auto;
 	}
 }
+.margin-top-80 {
+	margin-top: 80px !important;
+}
 .btn {
 	border-radius: 3px;
 	padding: 12px 30px;
