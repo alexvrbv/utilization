@@ -233,13 +233,13 @@ h3 {
     text-transform: uppercase;
 }
 @media (max-width: 480px) {
-	h2 {
+	h3 {
 		font-size: 16px;
 		line-height: 1.2em;
 	}
 }
 @media (max-width: 320px) {
-	h2 {
+	h3 {
 		font-size: 14px;
 		line-height: 1.2em;
 	}
@@ -247,6 +247,15 @@ h3 {
 .no-padding {
     padding-left: 0;
     padding-right: 0;
+}
+.no-margin {
+    margin: 0 !important;
+}
+.text-transform-none {
+	text-transform: none !important;
+}
+.font-weight-medium {
+	font-weight: 500;
 }
 @media (min-width: 768px) {
 	.width-1430 {
@@ -319,6 +328,9 @@ table td {
 .blue {
 	color: #00A0E3;
 	font-weight: 500;
+}
+.green {
+	color: #1CAF5E;
 }
 .wrapper {
 	overflow: hidden;
@@ -1799,13 +1811,51 @@ table td {
 .page-content--with-slider h2 {
 	margin-top: 40px;
 }
+.page-content--2-parts {
+	padding-bottom: 0;
+}
 .row--page-content {
 	margin-right: -25px;
     margin-left: -25px;
 }
+.row--2-parts {
+	margin-left: 0;
+	margin-right: 0;
+}
 .col--page-content {
 	padding-right: 25px;
     padding-left: 25px;
+}
+.col--transparent-left {
+	padding-left: 0;
+	padding-right: 70px;
+}
+@media (max-width: 991px) {
+	.col--transparent-left {
+		padding-right: 0;
+	}	
+}
+.col--transparent-right {
+	padding-left: 70px;
+	padding-right: 0;
+}
+@media (max-width: 991px) {
+	.col--transparent-right {
+		padding-left: 0;
+	}	
+}
+.col--light-blue {
+	background-color: #E3EDF9;
+	padding: 50px;
+}
+@media (max-width: 767px) {
+	.col--light-blue {
+		padding: 50px 15px;
+	}	
+}
+.page-content--2-parts .col,
+.page-content--2-parts [class*=col-] {
+	margin-bottom: 85px;
 }
 .page-content__block {
 	margin-top: 40px;
@@ -1873,6 +1923,20 @@ table td {
 .full .page-content__block-readmore {
 	transform: rotate(45deg);
 }
+.page-content__block ul {
+	margin-bottom: 0;
+}
+.page-content__block ul li {
+	color: #858189;
+	font-size: 15px;
+	line-height: 1.2em;
+	font-weight: 300;
+	margin-bottom: 15px;
+}
+.page-content__block ul li .dark {
+	font-weight: bold;
+	color: #3D3B3E;
+}
 .page-content__quote-wrapper {
 	text-align: center;
 }
@@ -1905,6 +1969,9 @@ table td {
 	bottom: 6px;
 	background-color: #00A0E3;
 }
+.page-content__quote--green:before {
+	background-color: #1CAF5E;
+}
 .page-content__list {
 	margin-top: 40px;
 	margin-left: auto;
@@ -1920,12 +1987,18 @@ table td {
 	padding-left: 70px;
 	list-style-type: none;
 	position: relative;
+	font-size: 15px;
+	line-height: 1.2em;
 	font-weight: 300;
 }
 @media (max-width: 767px) {
 	.page-content__list ul li {
 		padding-left: 50px;
 	}
+}
+.page-content__list--light ul li {
+	margin-bottom: 20px;
+	padding-left: 15px;
 }
 .page-content__list ul li:last-child {
 	margin-bottom: 0;
@@ -1950,6 +2023,13 @@ table td {
 	font-size: 16px;
 	line-height: 1em;
 	font-weight: bold;
+}
+.page-content__list--light ul li:before {
+	content: '';
+	top: 7px;
+	width: 4px;
+	height: 4px;
+	background-color: #1CAF5E;
 }
 .page-content-slider {
 	position: relative;
