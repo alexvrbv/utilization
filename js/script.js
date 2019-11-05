@@ -6,8 +6,8 @@ $(document).ready(function(){
     contentReadmoreInit();
     slidersInit();
 	popupsInit();
+	geographyMapInit();
 	matchHeightInit();
-	mapHeightInit();
 });
 
 //Main menu dropdown
@@ -167,7 +167,7 @@ function contentReadmoreInit() {
 
 //Sliders
 function slidersInit() {
-    $('.clients-slider__inner').slick({
+    $('.clients-slider__inner:not(.clients-slider__inner--partners)').slick({
         dots: true,
         dotsClass: 'clients-slider__nav',
         slidesToShow: 6,
@@ -195,6 +195,90 @@ function slidersInit() {
 				breakpoint: 768,
 				settings: {
 					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					dots: false				
+				}
+			}
+		],
+    });
+
+    $('.clients-slider__inner--partners').slick({
+        dots: false,
+        dotsClass: 'clients-slider__nav',
+        slidesToShow: 7,
+        slidesToScroll: 2,
+        infinite: true,
+        arrows: true,
+		prevArrow: $('.clients-slider__slick-prev'),
+        nextArrow: $('.clients-slider__slick-next'),
+		responsive: [
+			{
+				breakpoint: 1300,
+				settings: {
+					slidesToShow: 4,
+					slidesToScroll: 2,
+				}
+			},
+			{
+				breakpoint: 1080,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					dots: false				
+				}
+			}
+		],
+    });
+
+    $('.history-slider__inner').slick({
+        dots: false,
+        slidesToShow: 13,
+        slidesToScroll: 1,
+        infinite: true,
+		centerMode: true,
+        arrows: true,
+		prevArrow: $('.history-slider__slick-prev'),
+        nextArrow: $('.history-slider__slick-next'),
+		responsive: [
+			{
+				breakpoint: 1300,
+				settings: {
+					slidesToShow: 9,
+					slidesToScroll: 2,
+				}
+			},
+			{
+				breakpoint: 1080,
+				settings: {
+					slidesToShow: 7,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 3,
 					slidesToScroll: 1
 				}
 			},
@@ -253,17 +337,211 @@ function popupsInit() {
     });
 }
 
+//Contacts map
+var partners = [
+	{
+		center: [59.773827, 30.005634],
+		title: "Кусино 1",
+		description: "Brent Conrad talks with everyone from"
+
+	},
+	{
+		center: [59.733637, 30.873554],
+		title: "Кусино 2",
+		description: "Brent Conrad talks with everyone from"
+	},
+	{
+		center: [59.387956, 31.826618],
+		title: "Кусино 3",
+		description: "Brent Conrad talks with everyone from"
+	},
+	{
+		center: [59.586322, 32.425373],
+		title: "Кусино 4",
+		description: "Brent Conrad talks with everyone from"
+	}
+	
+];
+
+function geographyMapInit() {
+	if (typeof ymaps != "undefined") {
+		ymaps.ready(init);
+	}
+    function init(){
+        // Создание карты.
+        var geographyMap = new ymaps.Map("geography-map", {
+            center: [59.634331, 31.240832],
+            zoom: 9
+        });
+
+		var iconContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="geography-map__icon"></div>'
+        );
+		var iconContentLayoutHover = ymaps.templateLayoutFactory.createClass(
+            '<div class="geography-map__icon geography-map__icon--hover"></div>'
+        );
+
+        // Создание макета балуна
+        var MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+			'<div class="geography-map__balloon popover top">' +
+			'<a class="close" href="#">&times;</a>' +
+			'<div class="arrow"></div>' +
+			'<div class="popover-inner">' +
+			'$[[options.contentLayout observeSize minWidth=220 maxWidth=220 maxHeight=350]]' +
+			'</div>' +
+			'</div>', {
+			/**
+			 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+			 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+			 * @function
+			 * @name build
+			 */
+			build: function () {
+				this.constructor.superclass.build.call(this);
+
+				this._$element = $('.popover', this.getParentElement());
+
+				this.applyElementOffset();
+
+				this._$element.find('.close')
+					.on('click', $.proxy(this.onCloseClick, this));
+			},
+
+			/**
+			 * Удаляет содержимое макета из DOM.
+			 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+			 * @function
+			 * @name clear
+			 */
+			clear: function () {
+				this._$element.find('.close')
+					.off('click');
+
+				this.constructor.superclass.clear.call(this);
+			},
+
+			/**
+			 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+			 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+			 * @function
+			 * @name onSublayoutSizeChange
+			 */
+			onSublayoutSizeChange: function () {
+				MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+				if(!this._isElement(this._$element)) {
+					return;
+				}
+
+				this.applyElementOffset();
+
+				this.events.fire('shapechange');
+			},
+
+			/**
+			 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+			 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+			 * @function
+			 * @name applyElementOffset
+			 */
+			applyElementOffset: function () {
+				this._$element.css({
+					left: -(this._$element[0].offsetWidth / 2),
+					top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+				});
+			},
+
+			/**
+			 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+			 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+			 * @function
+			 * @name onCloseClick
+			 */
+			onCloseClick: function (e) {
+				e.preventDefault();
+
+				this.events.fire('userclose');
+			},
+
+			/**
+			 * Используется для автопозиционирования (balloonAutoPan).
+			 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+			 * @function
+			 * @name getClientBounds
+			 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+			 */
+			getShape: function () {
+				if(!this._isElement(this._$element)) {
+					return MyBalloonLayout.superclass.getShape.call(this);
+				}
+
+				var position = this._$element.position();
+
+				return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+					[position.left, position.top], [
+						position.left + this._$element[0].offsetWidth,
+						position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+					]
+				]));
+			},
+
+			/**
+			 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+			 * @function
+			 * @private
+			 * @name _isElement
+			 * @param {jQuery} [element] Элемент.
+			 * @returns {Boolean} Флаг наличия.
+			 */
+			_isElement: function (element) {
+				return element && element[0] && element.find('.arrow')[0];
+			}
+        });
+
+		geographyMap.controls.remove('searchControl');
+		partners.forEach(partner => {
+			var myPlacemark = new ymaps.Placemark(partner.center, {
+				hintContent: partner.title,
+            	balloonContent: '<div class="geography-map__balloon-inner">\
+				<div class="geography-map__balloon-title">\
+				' + partner.title + '\
+				</div>\
+				<div class="geography-map__balloon-description">\
+				' + partner.description + '\
+				</div>',
+			}, {
+				iconLayout: 'default#imageWithContent',
+				iconContentLayout: iconContentLayout,
+				iconImageHref: '',
+				iconImageSize: [40, 40],
+            	iconImageOffset: [0, 0],
+            	iconContentOffset: [0, 0],
+				hideIconOnBalloonOpen: false,
+				balloonLayout: MyBalloonLayout,
+				balloonOffset: [20, -10],
+			});
+			geographyMap.geoObjects.add(myPlacemark);
+			myPlacemark.events
+				.add('mouseenter', function (e) {
+					// Ссылку на объект, вызвавший событие,
+					// можно получить из поля 'target'.
+					e.get('target').options.set({
+						iconContentLayout: iconContentLayoutHover,
+					});
+				})
+				.add('mouseleave', function (e) {
+					e.get('target').options.set({
+						iconContentLayout: iconContentLayout,
+					});
+				});
+		});
+	}
+}
+
+
 //Match height
 function matchHeightInit() {
 	setTimeout(function () {
     	$('.clients-slider-slide').matchHeight();
 	},300);
-}
-
-//Map height
-function mapHeightInit() {
-    $(window).on('load resize', function(){
-		var mapHeight = $('.map__content').width()/1.59722222;
-		$('.map__content').css('height', mapHeight);
-	});
 }
