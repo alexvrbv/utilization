@@ -8,6 +8,7 @@ $(document).ready(function(){
 	popupsInit();
 	geographyMapInit();
 	matchHeightInit();
+	historySliderPopupsInit();
 });
 
 //Main menu dropdown
@@ -117,9 +118,11 @@ function mainMenuDropdownInit() {
 	$(window).on("load resize", function() {
 		var screenWidth = window.innerWidth;
 		if(screenWidth < 768) {
-			$('[data-hasqtip]').qtip('hide').qtip('disable');
+			$('.have-children-level-1[data-hasqtip]').qtip('hide').qtip('disable');
+			$('.have-children-level-2[data-hasqtip]').qtip('hide').qtip('disable');
 		} else {
-			$('[data-hasqtip]').qtip('enable');
+			$('.have-children-level-1[data-hasqtip]').qtip('enable');
+			$('.have-children-level-2[data-hasqtip]').qtip('enable');
 		}
 	});
 }
@@ -251,7 +254,12 @@ function slidersInit() {
 		],
     });
 
-    $('.history-slider__inner').slick({
+	$('.history-slider__inner').on('init', function(){
+		setTimeout(function () {
+			$('.slick-current .history-slider-slide__inner').trigger('click');
+		},300);
+	});    
+	$('.history-slider__inner').slick({
         dots: false,
         slidesToShow: 13,
         slidesToScroll: 1,
@@ -278,6 +286,13 @@ function slidersInit() {
 			{
 				breakpoint: 768,
 				settings: {
+					slidesToShow: 5,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 640,
+				settings: {
 					slidesToShow: 3,
 					slidesToScroll: 1
 				}
@@ -292,6 +307,9 @@ function slidersInit() {
 			}
 		],
     });
+	$('.history-slider__inner').on('afterChange', function(){
+		$('.slick-current .history-slider-slide__inner').trigger('click');
+	});
 
     $('.stages-slider__inner').slick({
         slidesToShow: 2,
@@ -387,7 +405,7 @@ function geographyMapInit() {
 			'<a class="close" href="#">&times;</a>' +
 			'<div class="arrow"></div>' +
 			'<div class="popover-inner">' +
-			'$[[options.contentLayout observeSize minWidth=220 maxWidth=220 maxHeight=350]]' +
+			'$[[options.contentLayout observeSize minWidth=180 maxWidth=180 maxHeight=550]]' +
 			'</div>' +
 			'</div>', {
 			/**
@@ -523,8 +541,6 @@ function geographyMapInit() {
 			geographyMap.geoObjects.add(myPlacemark);
 			myPlacemark.events
 				.add('mouseenter', function (e) {
-					// Ссылку на объект, вызвавший событие,
-					// можно получить из поля 'target'.
 					e.get('target').options.set({
 						iconContentLayout: iconContentLayoutHover,
 					});
@@ -544,4 +560,51 @@ function matchHeightInit() {
 	setTimeout(function () {
     	$('.clients-slider-slide').matchHeight();
 	},300);
+}
+
+//History slider popups
+function historySliderPopupsInit() {
+    var historySliderPopup = $('.history-slider-slide__inner').each(function() { 
+		$(this).qtip({
+			content: {
+				text: $(this).next('div'),
+				button: 'Закрыть',
+			},
+			position: {
+				my: 'center left',
+				at: 'center right',
+				target: $(this),
+				adjust: {
+					x: -0,
+                    y: -0
+				},
+				container: $('.history-slider-wrapper'),
+				viewport: $('body')
+			},
+			show: {
+				event: 'click',
+				solo: true,
+			},
+			hide: {
+				event: 'unfocus',
+				/*inactive: 5000,*/
+                delay: 300,
+                fixed: true,
+			},
+			style: {
+				classes: 'qtip qtip--history-slide',
+                tip: {
+                    corner: false
+                }
+			},
+			events: {
+				show: function(event, api) {
+                    
+				},
+				hide: function(event, api) {
+                   
+				}
+			}
+		});
+    });
 }
