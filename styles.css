@@ -2622,6 +2622,138 @@ table td {
 	color: #000000;
 	opacity: 0.7;
 }
+.wrapper--contacts-page {
+	padding-top: 85px;
+	padding-bottom: 85px;
+}
+.contacts-page__part {
+	margin-top: 40px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+@media (max-width: 1199px) {
+	.contacts-page__part {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+.contacts-page__title {
+	font-size: 14px;
+	line-height: 1.2em;
+	font-weight: bold;
+	color: #2E2A32;
+	text-transform: uppercase;
+}
+.contacts-page__content {
+	margin-top: 25px;
+	color: #757476;
+	font-size: 17px;
+	line-height: 1.6em;
+}
+.contacts-page__content p {
+	font-size: 17px;
+	line-height: 1.6em;
+	font-weight: normal;	
+}
+.contacts-page__content p:last-child {
+	margin-bottom: 0;
+}
+.contacts-page__content a {
+	color: #00A0E5;
+}
+.contacts-page__content a:hover,
+.contacts-page__content a:focus {
+	text-decoration: underline;
+}
+.contacts-page__link {
+	margin-top: 25px;
+	font-size: 12px;
+	line-height: 1.2em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.contacts-page__link a {
+	color: #00A0E3;
+}
+.contacts-page__link a:hover,
+.contacts-page__link a:focus {
+	text-decoration: underline;
+}
+.wrapper--contacts-managers {
+	padding-bottom: 110px;
+}
+.contacts-managers__divider {
+	height: 1px;
+	background-color: #CBCBCB;
+}
+.contacts-manager {
+	margin-top: 74px;
+	padding-left: 15px;
+	padding-right: 15px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+}
+@media (max-width: 1199px) {
+	.contacts-manager {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+.contacts-manager__part--1 {
+	flex: 0 0 40%;
+	max-width: 40%;
+	padding-right: 15px;
+}
+@media (max-width: 320px) {
+	.contacts-manager__part--1 {
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding-right: 0;
+	}
+}
+.contacts-manager__photo {
+	max-width: 135px;
+}
+.contacts-manager__part--2 {
+	flex: 0 0 60%;
+	max-width: 60%;
+}
+@media (max-width: 320px) {
+	.contacts-manager__part--2 {
+		margin-top: 20px;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+.contacts-manager__position {
+	font-size: 12px;
+	line-height: 1.2em;
+	text-transform: uppercase;
+	color: #757476;
+}
+.contacts-manager__name {
+	margin-top: 15px;
+	font-size: 20px;
+	line-height: 1.2em;
+	font-weight: 500;
+	color: #2E2A32;
+}
+.contacts-manager__email {
+	margin-top: 15px;
+	font-size: 13px;
+	line-height: 1.2em;
+}
+.contacts-manager__email a {
+	color: #00A0E3;
+}
+.contacts-manager__email a:hover,
+.contacts-manager__email a:focus {
+	color: #00A0E3;
+}
 .contacts-content {
 	padding-top: 65px;
 	padding-bottom: 65px;
