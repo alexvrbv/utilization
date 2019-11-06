@@ -47,7 +47,7 @@ function mainMenuDropdownInit() {
 					$(this).next('.nav-submenu-level-2').removeClass('visible');
 					$(this).removeClass('active');
 				},
-				timeout: 300
+				timeout: 500
 			});
 			$(".nav-submenu-level-2").hoverIntent({
 				over: function over() {
@@ -58,7 +58,7 @@ function mainMenuDropdownInit() {
 					$(this).removeClass('visible-when-hover');
 					$(this).parent('li').find('.have-children-level-2').removeClass('active-when-hover');
 				},
-				timeout: 300
+				timeout: 500
 			});
 		} else {
 			$(".have-children-level-1").unbind("mouseenter").unbind("mouseleave");
