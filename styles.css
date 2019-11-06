@@ -1634,6 +1634,9 @@ table td {
 	background-color: #D8D8D8;
 }
 .clients-slider__nav li.slick-active button {
+	background-color: #00A0E3;
+}
+.clients--inner-page .clients-slider__nav li.slick-active button {
 	background-color: #ffffff;
 }
 .stages__title {
