@@ -74,10 +74,10 @@ function mainMenuAccordeonInit() {
 	$(window).on("load resize", function() {
 		var screenWidth = window.innerWidth;
 		if(screenWidth < 768) {
-			$('.nav-submenu-level-1__link-inner').unbind('click');
-			$('.nav-submenu-level-1__link-inner').on('click', function(e) {
+			$('.have-children-level-2').unbind('click');
+			$('.have-children-level-2').on('click', function(e) {
 				e.preventDefault();
-				$(this).parent().parent().find('.nav-submenu-level-2').toggleClass('show');
+				$(this).parent().find('.nav-submenu-level-2').toggleClass('show');
 			});
 		}
 	});
